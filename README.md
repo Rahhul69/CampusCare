@@ -51,7 +51,7 @@ Clone the repository:
 bash
 Copy
 Edit
-git clone https://github.com/your-username/college-maintenance-office.git
+git clone https://github.com/Rahhhul69/college-maintenance-office.git
 cd college-maintenance-office
 
 Set up the database:
