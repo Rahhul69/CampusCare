@@ -1,0 +1,531 @@
+/* CampusCare - Main CSS Styles
+   A comprehensive styling for college maintenance system
+   Includes icons, animations, and responsive design
+*/
+
+:root {
+  /* Color Variables */
+  --primary: #4e73df;
+  --primary-dark: #3a56b5;
+  --secondary: #1cc88a;
+  --danger: #e74a3b;
+  --warning: #f6c23e;
+  --info: #36b9cc;
+  --light: #f8f9fc;
+  --dark: #5a5c69;
+  --gray: #858796;
+  --gray-light: #eaecf4;
+  --white: #ffffff;
+  
+  /* Status Colors */
+  --status-pending: #f6c23e;
+  --status-in-progress: #4e73df;
+  --status-resolved: #1cc88a;
+  
+  /* Category Colors */
+  --category-facilities: #6f42c1;
+  --category-technology: #17a2b8;
+  --category-security: #dc3545;
+  --category-sanitation: #1cc88a;
+  --category-other: #6c757d;
+  
+  /* Shadows and Effects */
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+  
+  /* Font settings */
+  --font-family: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Base Styles */
+body {
+  font-family: var(--font-family);
+  background-color: #f8f9fc;
+  margin: 0;
+  padding: 0;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all var(--transition-speed);
+}
+
+a:hover {
+  color: var(--primary-dark);
+  text-decoration: underline;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 0.35rem;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+}
+
+.btn i {
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow);
+}
+
+.btn-success {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.btn-success:hover {
+  background-color: #19a97b;
+  transform: translateY(-2px);
+  box-shadow: var(--hover-shadow);
+}
+
+/* Dashboard Container */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Form Styling */
+.form-container {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-speed);
+}
+
+.form-container:hover {
+  box-shadow: var(--hover-shadow);
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.form-title i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+.form-title h2 {
+  margin: 0;
+  color: var(--dark);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark);
+  background-color: var(--white);
+  background-clip: padding-box;
+  border: 1px solid var(--gray-light);
+  border-radius: 0.35rem;
+  transition: border-color var(--transition-speed);
+}
+
+.form-control:focus {
+  border-color: var(--primary);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Complaints List Styling */
+.complaints-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.complaint-card {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-speed);
+  position: relative;
+  overflow: hidden;
+}
+
+.complaint-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background-color: var(--primary);
+}
+
+.complaint-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.complaint-card h3 {
+  margin-top: 0;
+  color: var(--dark);
+  font-size: 1.25rem;
+}
+
+.complaint-card p {
+  margin: 0.5rem 0;
+}
+
+.complaint-card strong {
+  color: var(--dark);
+}
+
+/* Status Styling */
+.status-pending, .status-in_progress, .status-resolved {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.status-pending {
+  background-color: rgba(246, 194, 62, 0.2);
+  color: var(--status-pending);
+}
+
+.status-pending::before {
+  content: '\f017'; /* Clock icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.status-in_progress {
+  background-color: rgba(78, 115, 223, 0.2);
+  color: var(--status-in-progress);
+}
+
+.status-in_progress::before {
+  content: '\f110'; /* Spinner icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.status-resolved {
+  background-color: rgba(28, 200, 138, 0.2);
+  color: var(--status-resolved);
+}
+
+.status-resolved::before {
+  content: '\f00c'; /* Check icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+/* Category Styling */
+.category {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.category-facilities {
+  background-color: rgba(111, 66, 193, 0.2);
+  color: var(--category-facilities);
+}
+
+.category-facilities::before {
+  content: '\f1ad'; /* Building icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.category-technology {
+  background-color: rgba(23, 162, 184, 0.2);
+  color: var(--category-technology);
+}
+
+.category-technology::before {
+  content: '\f109'; /* Laptop icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.category-security {
+  background-color: rgba(220, 53, 69, 0.2);
+  color: var(--category-security);
+}
+
+.category-security::before {
+  content: '\f023'; /* Lock icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.category-sanitation {
+  background-color: rgba(28, 200, 138, 0.2);
+  color: var(--category-sanitation);
+}
+
+.category-sanitation::before {
+  content: '\f51a'; /* Broom icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+.category-other {
+  background-color: rgba(108, 117, 125, 0.2);
+  color: var(--category-other);
+}
+
+.category-other::before {
+  content: '\f05a'; /* Info icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+/* Location styling */
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.location::before {
+  content: '\f3c5'; /* Map marker icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  color: var(--primary);
+}
+
+/* Date styling */
+.date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  color: var(--gray);
+}
+
+.date::before {
+  content: '\f133'; /* Calendar icon */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+/* Stats Container */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all var(--transition-speed);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+.stat-card i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: var(--gray);
+  font-weight: 600;
+}
+
+/* Alert Messages */
+.alert {
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.alert i {
+  font-size: 1.25rem;
+}
+
+.alert-success {
+  background-color: rgba(28, 200, 138, 0.2);
+  color: #19a97b;
+}
+
+.alert-success i {
+  color: var(--secondary);
+}
+
+.alert-danger {
+  background-color: rgba(231, 74, 59, 0.2);
+  color: #e52d1a;
+}
+
+.alert-danger i {
+  color: var(--danger);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Apply Animations */
+.complaint-card {
+  animation: fadeIn 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.complaint-card:nth-child(1) { animation-delay: 0.1s; }
+.complaint-card:nth-child(2) { animation-delay: 0.2s; }
+.complaint-card:nth-child(3) { animation-delay: 0.3s; }
+.complaint-card:nth-child(4) { animation-delay: 0.4s; }
+.complaint-card:nth-child(5) { animation-delay: 0.5s; }
+
+.status-in_progress::before {
+  animation: rotate 2s linear infinite;
+  display: inline-block;
+}
+
+.btn-primary:hover i {
+  animation: pulse 1s infinite;
+}
+
+.alert {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.stat-card:hover .stat-value {
+  animation: pulse 1s;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .complaints-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .stats-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-container {
+    padding: 1rem;
+  }
+  
+  .complaint-card {
+    padding: 1rem;
+  }
+}
